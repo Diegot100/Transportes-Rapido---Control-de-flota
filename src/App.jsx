@@ -1,8 +1,12 @@
 function App() {
   return (
-    <div>
-      <h1>Ruta Control</h1>
-      <p>Transportes Rápido — control de flota</p>
+    <div className="wrap">
+      <h2>Ruta Control</h2>
+      <div className="card">
+        <h3>Transportes Rápido</h3>
+        <p className="muted">Control de flota</p>
+        <span className="badge b-disponible">Disponible</span>
+      </div>
     </div>
   )
 }
