@@ -13,7 +13,7 @@ function Sidebar({ currentRole, onChange }) {
 
   return (
     <>
-      <Navbar data-bs-theme="dark" className="d-lg-none sticky-top mobile-nav">
+      <Navbar expand={false} data-bs-theme="dark" className="d-lg-none sticky-top mobile-nav">
         <Container fluid>
           <Navbar.Brand as="div" className="d-flex align-items-center gap-2 mb-0">
             <span className="side-mark">TR</span>
