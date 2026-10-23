@@ -53,8 +53,10 @@ export function TextPromptModal({ title, label, placeholder, submitLabel, onSubm
 export function CombustibleModal({ onSubmit, onClose }) {
   const [litros, setLitros] = useState("80")
   const [costo, setCosto] = useState("")
+  const [costoEditado, setCostoEditado] = useState(false)
   const costoSugerido = (Number(litros) || 0) * 1200
-  const costoFinal = costo === "" ? costoSugerido : Number(costo)
+  const costoMostrado = costoEditado ? costo : costoSugerido
+  const costoFinal = Number(costoMostrado)
 
   const enviar = (e) => {
     e.preventDefault()
@@ -77,8 +79,11 @@ export function CombustibleModal({ onSubmit, onClose }) {
             <Form.Control
               type="number"
               min="1"
-              value={costo === "" ? costoSugerido : costo}
-              onChange={(e) => setCosto(e.target.value)}
+              value={costoMostrado}
+              onChange={(e) => {
+                setCosto(e.target.value)
+                setCostoEditado(true)
+              }}
             />
             <Form.Text muted>Sugerido: {fmtCLP(costoSugerido)} (a $1.200 por litro). Puedes editarlo.</Form.Text>
           </Form.Group>
